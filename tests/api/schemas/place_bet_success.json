@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "POST /api/place-bet - 200 response",
+  "type": "object",
+  "required": ["message", "matchId", "selection", "stake", "odds", "payout", "balance", "currency"],
+  "additionalProperties": false,
+  "properties": {
+    "message": { "type": "string", "minLength": 1 },
+    "matchId": { "type": "string", "minLength": 1 },
+    "selection": { "enum": ["HOME", "DRAW", "AWAY"] },
+    "stake": { "type": "number", "exclusiveMinimum": 0 },
+    "odds": { "type": "number", "minimum": 1.01, "maximum": 1000 },
+    "payout": { "type": "number", "exclusiveMinimum": 0 },
+    "balance": { "type": "number", "minimum": 0 },
+    "currency": { "type": "string", "minLength": 1 }
+  }
+}
